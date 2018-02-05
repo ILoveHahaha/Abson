@@ -1,23 +1,34 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    <transition name="fade">
+      <keep-alive>
+        <router-view></router-view>
+      </keep-alive>
+    </transition>
   </div>
 </template>
 
 <script>
+// import Login from './components/login/login.vue'
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    // 'login': Login
+  }
 }
 </script>
 
-<style>
+<style lang="less">
+@text-color: #2c3e50;
+@height: 100%;
+@width: 100%;
 #app {
+  height: @height;
+  width: @width;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  color: @text-color;
 }
 </style>
