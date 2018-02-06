@@ -1,0 +1,85 @@
+@height: 100%;
+@width: 100%;
+#login{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  width: @width;
+  height: @height;
+
+  .loginPanel{
+    width: 350px;
+    height: 300px;
+    top: @height / 2;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    form{
+      position: relative;
+      padding: 25px;
+      .loginImg{
+
+        img{
+          width: 10rem;
+          position: absolute;
+          z-index: 1;
+          top: 0;
+          &:nth-of-type(1){
+            transform: translate(-50%,-83%)
+          }
+          &:nth-of-type(2){
+            transform: translate(-50%,-75.8%);
+          }
+          &:nth-of-type(3){
+            width: 8.6rem;
+            transform: translate(-50%,-75%);
+          }
+        }
+      }
+      .loginTitle{
+        margin-bottom: 20px;
+        background: url('../../assets/icon_line.png') no-repeat left center;
+        position: relative;
+        &:before, &:after{
+          content: '';
+          display: table;
+        }
+        span{
+          font: 24px/30px 'Microsoft Yahei';
+          color: #333;
+          background: #fff;
+          display: inline-block;
+          height: 30px;
+          padding: 0 10px;
+        }
+      }
+      .loginInput{
+        margin-bottom: 20px;
+      }
+    }
+
+    .demo-input-suffix{
+
+    }
+    .loginSelect{
+      margin-bottom: 10px;
+      text-align: left;
+      a{
+        float: right;
+        font-size: 14px;
+        cursor: pointer;
+      }
+    }
+    .el-button{
+      width: 100%;
+
+      &:nth-of-type(2){
+        margin-top: 10px;
+        margin-left: 0;
+      }
+    }
+  }
+}
