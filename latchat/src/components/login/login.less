@@ -8,27 +8,95 @@
   width: @width;
   height: @height;
 
+  @-webkit-keyframes scrollBgGridLinks{
+    from{
+      -webkit-transform:translateY(0);
+      transform:translateY(0)
+    }
+    to{
+      -webkit-transform:translateY(-330px);
+      transform:translateY(-330px)
+    }
+  }
+  @keyframes scrollBgGridLinks{
+    from{
+      -webkit-transform:translateY(0);
+      transform:translateY(0)
+    }
+    to{
+      -webkit-transform:translateY(-330px);
+      transform:translateY(-330px)
+    }
+  }
+  @-webkit-keyframes fadeIn{0%{opacity:0;display:block}
+    100%{opacity:1}
+  }
+  @keyframes fadeIn{0%{opacity:0;display:block}
+    100%{opacity:1}
+  }
+  @-webkit-keyframes fadeOut{0%{opacity:1}
+    100%{opacity:0}
+  }
+  @keyframes fadeOut{0%{opacity:1}
+    100%{opacity:0}
+  }
+  .UnauthHomePage{
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    background: #fff;
+    padding-bottom: 10px;
+    position: fixed;
+    z-index: 1;
+
+    .register_shadow {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      overflow: hidden;
+      z-index: -1;
+      -webkit-transition: all 1s;
+      transition: all 1s;
+
+      .register_shadow_txt {
+        width: 100%;
+        height: 100%;
+        background-image: url(../../assets/login_bg.jpg);
+        background-size: cover;
+        position: absolute;
+        -webkit-animation: scrollBgGridLinks 20s linear;
+        animation: scrollBgGridLinks 20s linear;
+        -webkit-animation-fill-mode: forwards;
+        animation-fill-mode: forwards;
+        -webkit-transition: opacity .5s;
+        transition: opacity .5s;
+        padding-bottom: 330px;
+      }
+    }
+  }
   .loginPanel{
     width: 350px;
-    height: 300px;
+    height: 350px;
     top: @height / 2;
     align-self: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    background-color: white;
+    z-index: 1;
 
     form{
       position: relative;
       padding: 25px;
       .loginImg{
-
         img{
           width: 10rem;
           position: absolute;
           z-index: 1;
           top: 0;
           &:nth-of-type(1){
-            transform: translate(-50%,-83%)
+            transform: translate(-50%,-83%);
           }
           &:nth-of-type(2){
             transform: translate(-50%,-75.8%);
@@ -60,7 +128,6 @@
         margin-bottom: 20px;
       }
     }
-
     .demo-input-suffix{
 
     }
@@ -79,6 +146,68 @@
       &:nth-of-type(2){
         margin-top: 10px;
         margin-left: 0;
+      }
+    }
+  }
+  .newUser{
+    width: 350px;
+    height: 430px;
+    top: @height / 2;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 1;
+    background-color: white;
+
+    form{
+      position: relative;
+      padding: 25px;
+      .UserImg{
+        img {
+          width: 10rem;
+          position: absolute;
+          z-index: 1;
+          top: 0;
+          &:nth-of-type(1){
+            transform: translate(-50%,-83%);
+          }
+          &:nth-of-type(2){
+            transform: translate(-50%,-75.8%);
+          }
+          &:nth-of-type(3){
+            width: 8.6rem;
+            transform: translate(-50%,-75%);
+          }
+        }
+      }
+      .UserTitle{
+        margin-bottom: 20px;
+        background: url('../../assets/icon_line.png') no-repeat left center;
+        position: relative;
+        &:before, &:after{
+          content: '';
+          display: table;
+        }
+        span{
+          font: 24px/30px 'Microsoft Yahei';
+          color: #333;
+          background: #fff;
+          display: inline-block;
+          height: 30px;
+          padding: 0 10px;
+        }
+      }
+      .UserInput{
+        margin-bottom: 20px;
+      }
+      button{
+        width: 100%;
+        margin-bottom: 10px;
+      }
+      a{
+        color: #409EFF;
+        cursor: pointer;
       }
     }
   }
