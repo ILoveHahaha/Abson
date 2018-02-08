@@ -14,7 +14,7 @@ export default {
   name: 'inThePage',
   data () {
     return {
-
+      msg: 'aaa'
     }
   },
   components: {
