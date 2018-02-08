@@ -10,6 +10,11 @@ export default {}
 
 <style lang="less" scoped>
   .centerNav{
-    float: left;
+    margin-left: 60px;
+    position: absolute;
+    padding: 12px;
+    width: 216px;
+    height: 676px;
+    background-color: #eeeeee;
   }
 </style>

@@ -10,6 +10,11 @@ export default {}
 
 <style lang="less" scoped>
   .rightNav{
-    float: right;
+    margin-left: 300px;
+    padding: 12px;
+    position: absolute;
+    width: 676px;
+    height: 676px;
+    background-color: white;
   }
 </style>
