@@ -9,7 +9,13 @@
         <i></i>
       </span>
     </div>
-    <div class="userChat"></div>
+    <div class="userChat">
+      <div>
+        <img src="../../../assets/webwxgeticon.jpg">
+      </div>
+      <div></div>
+      <div></div>
+    </div>
   </div>
 </template>
 
