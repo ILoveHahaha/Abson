@@ -14,7 +14,7 @@ export default {}
     padding: 12px;
     position: absolute;
     width: 676px;
-    height: 676px;
+    height: 576px;
     background-color: white;
   }
 </style>

@@ -30,18 +30,30 @@ export default {
 <style lang="less" scoped>
   #inThePage{
     position: relative;
-    width: 100%;
-    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     background-image: url("../../assets/bj_zhuce.jpg");
-    .pageContain{
+    width: 100%;
+    height: 100%;
+    /*@media screen and (max-height: 700px) {*/
+      /*width: 1000px;*/
+      /*height: 700px;*/
+    /*}*/
+    /*@media screen and (min-height: 700px) {*/
+      /*width: 100%;*/
+      /*height: 100%;*/
+    /*}*/
+    .pageContain {
       align-self: center;
-      min-height: 700px;
-      min-width: 1000px;
       width: 1000px;
-      height: 700px;
+      height: 600px;
     }
+    /*@media screen and (max-width: 768px) {*/
+    /*.pageContain{*/
+    /*width: 1000px;*/
+    /*height: 700px;*/
+    /*}*/
+    /*}*/
   }
 </style>
