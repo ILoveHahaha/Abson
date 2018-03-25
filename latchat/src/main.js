@@ -6,10 +6,14 @@ import router from './router'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import Vuex from 'vuex'
+import EasyScroll from 'easyscroll'
+import axios from 'axios'
 
 Vue.config.productionTip = false
 Vue.use(ElementUI)
 Vue.use(Vuex)
+Vue.use(EasyScroll)
+Vue.prototype.$http = axios
 
 /* eslint-disable no-new */
 new Vue({

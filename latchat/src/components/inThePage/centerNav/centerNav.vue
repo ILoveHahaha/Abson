@@ -9,69 +9,55 @@
         <i></i>
       </span>
     </div>
-    <div class="userChat">
-      <div>
-        <img src="../../../assets/webwxgeticon.jpg">
+    <EasyScrollbar>
+      <div class="userPanel">
+        <div class="userChat" v-for="item in total">
+          <div>
+            <img src="../../../assets/webwxgeticon.jpg">
+          </div>
+          <div>
+            <p>前后端分享群</p>
+            <p>
+              <span v-if="noRead">[{{noRead}}条] </span>
+              <span v-if="user">{{user}}:</span>
+              <span v-if="message">{{message}}</span>
+            </p>
+          </div>
+          <div>
+            <p>
+              <span v-if="time">{{time}}</span>
+            </p>
+            <p>
+              <span v-if="issure"><i></i></span>
+            </p>
+          </div>
+        </div>
       </div>
-      <div></div>
-      <div></div>
-    </div>
+    </EasyScrollbar>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  data () {
+    return {
+      noRead: 10,
+      user: '肥莹',
+      message: '真的很好吃啊',
+      time: this.nowDate().getHours() + ':' + this.nowDate().getMinutes(),
+      issure: true,
+      total: 10
+    }
+  },
+  methods: {
+    nowDate () {
+      let date = new Date()
+      return date
+    }
+  }
+}
 </script>
 
 <style lang="less" scoped>
-  .centerNav{
-    margin-left: 60px;
-    position: absolute;
-    padding: 12px;
-    width: 216px;
-    height: 576px;
-    background-color: #eeeeee;
-    .centerNav-Select{
-      height: 40px;
-      div{
-        display: inline-block;
-        border: 1px solid #afafaf;
-        width: 160px;
-        height: 19px;
-        padding-left: 5px;
-        background: #edeeef;
-        position: relative;
-        text-align: left;
-        img{
-          vertical-align: middle;
-        }
-        input{
-          width: 120px;
-          height: 19px;
-          font-size: 14px;
-          color: #999;
-          background: none;
-          border: none;
-          outline: none;
-        }
-        /*padding-left: 5px;*/
-        /*padding-right: 5px;*/
-        /*background: url("../../../assets/search.png") no-repeat;*/
-      }
-      span{
-        display: inline-block;
-        width: 19px;
-        height: 19px;
-        vertical-align: bottom;
-        border: 1px solid #8a8a8a;
-        i{
-          background: url("../../../assets/addUser.png");
-          display: inline-block;
-          width: 100%;
-          height: 100%;
-          cursor: pointer;
-        }
-      }
-    }
-  }
+  @import "centerNav";
 </style>
