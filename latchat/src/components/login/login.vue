@@ -14,6 +14,7 @@
         </el-col>
         <el-col class="loginTitle">
           <span>登&nbsp;录</span>
+          <!--<span>{{$store.state.userId}}</span>-->
         </el-col>
         <!--<el-form-item label="用户名" prop="username">-->
           <!--<el-col :span="20">-->
@@ -28,15 +29,16 @@
         <div class="demo-input-suffix">
           <el-col class="loginInput">
             <el-input
-                    placeholder="请输入用户名"
+                    placeholder="请输入账号"
                     prefix-icon="el-icon-ump-yonghu"
-                    v-model="loginForm.username"
+                    v-model="loginForm.userEmail"
                     @focus="showTheHanel(1)"
                     @blur="showThepanel(1)">
             </el-input>
           </el-col>
           <el-col class="loginInput">
             <el-input
+                    type="password"
                     placeholder="请输入密码"
                     prefix-icon="el-icon-ump-mima"
                     v-model="loginForm.password"
@@ -51,7 +53,7 @@
         </el-col>
         <el-col>
           <el-button type="primary" @click="submitForm('loginForm')">登录</el-button>
-          <el-button @click="newUser()">注册</el-button>
+          <el-button @click="register()">注册</el-button>
         </el-col>
       </el-form>
     </div>
@@ -80,6 +82,7 @@
           </el-form-item>
           <el-form-item class="UserInput" prop="password">
             <el-input
+                    type="password"
                     placeholder="请输入密码"
                     prefix-icon="el-icon-ump-mima"
                     v-model="UserForm.password">
@@ -87,6 +90,7 @@
           </el-form-item>
           <el-form-item class="UserInput" prop="repeatPassword">
             <el-input
+                    type="password"
                     placeholder="请再次输入密码"
                     prefix-icon="el-icon-ump-mima"
                     v-model="UserForm.repeatPassword">
@@ -94,7 +98,7 @@
           </el-form-item>
         </div>
         <el-col>
-          <el-button type="primary" @click="submitForm('loginForm')">注册</el-button>
+          <el-button type="primary" @click="submitForm('UserForm')">注册</el-button>
           <a @click="loginPanel()">已有账号</a>
         </el-col>
       </el-form>
@@ -102,125 +106,7 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'login',
-  data () {
-    var userEmail = (rule, value, callback) => {
-      if (value === '') {
-        callback(new Error('请输入邮箱'))
-      }
-    }
-    var username = (rule, value, callback) => {
-      if (value === '') {
-        callback(new Error('请输入用户名'))
-      }
-    }
-    var password = (rule, value, callback) => {
-      if (value === '') {
-        callback(new Error('请输入密码'))
-      }
-    }
-    var repeatPassword = (rule, value, callback) => {
-      if (value === '') {
-        callback(new Error('请再次输入密码'))
-      }
-    }
-    return {
-      loginForm: {
-        username: '',
-        password: ''
-      },
-      UserForm: {
-        userEmail: '',
-        username: '',
-        password: '',
-        repeatPassword: ''
-      },
-      newUserState: {
-        userEmail: [
-          { validator: userEmail, trigger: 'blur' }
-        ],
-        username: [
-          { validator: username, trigger: 'blur' }
-        ],
-        password: [
-          { validator: password, trigger: 'blur' }
-        ],
-        repeatPassword: [
-          { validator: repeatPassword, trigger: 'blur' }
-        ]
-      },
-      // rules: {
-      //   username: [
-      //     { validator: username, trigger: 'blur' }
-      //   ],
-      //   password: [
-      //     { validator: password, trigger: 'blur' }
-      //   ]
-      // },
-      rememberMe: true,
-      ImageShow: '',
-      firstInput: 0,
-      nextInput: 0,
-      isLogin: true
-    }
-  },
-  mounted () {
-    this.ImageShow = document.querySelectorAll('.login img')
-    let formItem = document.querySelectorAll('.userInput input')
-    formItem.forEach(function (value, index, arr) {
-      arr[index].style.marginLeft = '0px'
-    })
-  },
-  methods: {
-    submitForm (formName) {
-      this.$refs[formName].validate((valid) => {
-        if (valid) {
-          alert('submit!')
-        } else {
-          console.log('error submit!!')
-          return false
-        }
-      })
-    },
-    goToLosePsw () {
-
-    },
-    newUser () {
-      this.isLogin = !this.isLogin
-    },
-    showTheHanel (val) {
-      if (val === 1) {
-        this.firstInput = 0
-        this.ImageShow[0].style.display = 'none'
-        this.ImageShow[1].style.display = ''
-        this.ImageShow[2].style.display = 'none'
-      } else {
-        this.nextInput = 0
-        this.ImageShow[0].style.display = 'none'
-        this.ImageShow[1].style.display = 'none'
-        this.ImageShow[2].style.display = ''
-      }
-    },
-    showThepanel (val) {
-      if (val === 1) {
-        this.firstInput = 1
-      } else {
-        this.nextInput = 2
-      }
-      if (this.firstInput === 1 && this.nextInput === 2) {
-        this.ImageShow[0].style.display = ''
-        this.ImageShow[1].style.display = 'none'
-        this.ImageShow[2].style.display = 'none'
-      }
-    },
-    loginPanel () {
-      this.isLogin = !this.isLogin
-    }
-  }
-}
-</script>
+<script src='./login.js'></script>
 
 <style lang="less" scoped>
   @import "../../assets/icon/iconfont.css";
