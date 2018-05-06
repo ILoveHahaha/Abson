@@ -39,11 +39,21 @@ const mutations = {
   [MutationTypes.USERFRIENDLIST] (state) {
     state.userFriendList = ''
   },
+  // 用户个人id
   [MutationTypes.LOGIN] (state, {uid}) {
     state.userId = uid
-    console.log(uid)
   },
-  [MutationTypes.REGISTER] (state) {},
+  // 用户个人信息
+  [MutationTypes.MYSELF] (state, {uname, ulogo, usex, usign, ucity}) {
+    state.username = uname
+    state.ulogo = ulogo
+    state.usex = usex
+    state.usign = usign
+    state.ucity = ucity
+  },
+  [MutationTypes.REGISTER] (state, {uid}) {
+    state.userId = uid
+  },
   [MutationTypes.CHANGEPSW] (state) {},
   [MutationTypes.INITDATA] (state) {
     state.groupList = ''

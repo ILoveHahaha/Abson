@@ -5,6 +5,7 @@ export const state = {
   usex: '',
   ulogo: '',
   usign: '',
+  ucity: '',
   userFriendList: Object.create(null),
   groupList: Object.create(null)
 }

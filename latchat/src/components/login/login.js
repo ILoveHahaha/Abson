@@ -1,6 +1,4 @@
 import {mapActions, mapGetters} from 'vuex'
-// import {store} from '../../store/index'
-// import {userId} from '../../store/getters'
 export default {
   name: 'login',
   data () {
@@ -85,24 +83,28 @@ export default {
       if (formName === 'loginForm') {
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            this.$store.dispatch('login', {uid: this.loginForm.userEmail, password: this.loginForm.password})
-            console.log(this.$store.state)
-            // this.login(this.loginForm.userEmail, this.loginForm.password)
+            this.$store.dispatch('login', {uid: this.loginForm.userEmail, password: this.loginForm.password}).then(res => {
+              this.$router.push({path: '/inThePage'})
+            })
           } else {
             console.log('error submit!!')
             return false
           }
         })
       } else if (formName === 'UserForm') {
-        this.$refs[formName].validate((valid) => {
-          if (valid) {
-            this.$store.dispatch('newuser', {uid: this.UserForm.userEmail, password: this.UserForm.username, uname: this.UserForm.password})
-            // this.newUser(this.UserForm.userEmail, this.UserForm.username, this.UserForm.password)
-          } else {
-            console.log('error submit!!')
-            return false
-          }
+        // this.$refs[formName].validate((valid) => {
+        //   console.log(valid)
+        //   if (valid) {
+        //     console.log(2)
+        this.$store.dispatch('newuser', {uid: this.UserForm.userEmail, password: this.UserForm.username, uname: this.UserForm.password}).then(res => {
+          this.$router.push({path: '/inThePage'})
         })
+        // this.newUser(this.UserForm.userEmail, this.UserForm.username, this.UserForm.password)
+        // } else {
+        //   console.log('error submit!!')
+        //   return false
+        // }
+      // })
       }
     },
     goToLosePsw () {

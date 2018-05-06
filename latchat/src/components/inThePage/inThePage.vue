@@ -12,6 +12,7 @@
 import leftNav from './leftNav/leftNav.vue'
 import centerNav from './centerNav/centerNav.vue'
 import rightNav from './rightNav/rightNav.vue'
+import {mapGetters, mapActions, mapMutations} from 'vuex'
 export default {
   name: 'inThePage',
   data () {
@@ -23,6 +24,13 @@ export default {
     leftNav,
     centerNav,
     rightNav
+  },
+  computed: {
+    ...mapGetters([
+      'state'
+    ]),
+    ...mapActions([]),
+    ...mapMutations([])
   }
 }
 </script>

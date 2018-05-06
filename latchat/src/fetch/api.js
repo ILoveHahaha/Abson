@@ -3,11 +3,13 @@
  * */
 import {fetch} from './fetch'
 // 登陆接口
-export const login = (userId, password) => fetch('/login/user/login', {uid: userId, password: password}, 'POST')
+export const login = (uid, password) => fetch('/login/user/login', {uid: uid, password: password}, 'POST')
 // 注册新用户接口
 export const newUser = (userId, password, username) => fetch('/login/user/register', {uid: userId, password: password, uname: username}, 'POST')
 // 修改密码
 export const changePsw = (userId, password) => fetch('/login/user/changePsw', {uid: userId, password: password}, 'POST')
+// 加载个人信息
+export const myselfInfo = (userId) => fetch('/index/myself', {uid: userId}, 'POST')
 // 获取好友列表接口
 export const userFriendList = (userId) => fetch('/index/friendList', {uid: userId}, 'POST')
 // 获取群组列表接口
