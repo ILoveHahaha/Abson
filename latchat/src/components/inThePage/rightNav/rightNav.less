@@ -1,8 +1,8 @@
 .rightNav{
   margin-left: 300px;
   position: absolute;
-  width: 676px;
-  height: 576px;
+  width: 700px;
+  height: 600px;
   background-color: white;
   .messagePanel{
     display: flex;
@@ -11,7 +11,7 @@
     align-items: center;
     width: 100%;
     height: 100%;
-    padding: 12px;
+    //padding: 12px;
     background-color: #eeeeee;
     .noSelect{
       width: 120px;
@@ -33,7 +33,8 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        width: 100%;
+        //width: 100%;
+        padding: 5px 12px 5px;
         height: 5%;
         border-bottom: 1px solid #d4d4d4;
         span{
@@ -54,10 +55,12 @@
         }
       }
       .message{
-        width: 100%;
+        //width: 100%;
         height: 63%;
         background-color: transparent;
         border-bottom: 1px solid #d4d4d4;
+        padding-left: 12px;
+        padding-right: 12px;
         .messageList{
           position: relative;
           height: 100%;
@@ -141,11 +144,12 @@
         }
       }
       .inputPanel{
-        width: 100%;
-        height: 30%;
+        //width: 100%;
+        height: 27.5%;
         padding-top: 2%;
-        background-color: transparent;
+        background-color: white;
         .inputPanel-icon{
+          padding-left: 12px;
           text-align: left;
           height: 20%;
           i{
@@ -170,14 +174,21 @@
         .inputPanel-input{
           height: 60%;
           textarea{
-            width: 100%;
-            height: 100%;
-            border: 0;
+            width: 95%;
+            height: 80%;
             resize:none;
+            border: 0;
+            outline: none;
+            font-size: 16px;
+            &:focus{
+              outline-offset: unset;
+            }
         }
       }
       .inputPanel-commit{
-        height: 20%;
+        text-align: right;
+        margin-right: 10px;
+        //height: 20%;
       }
     }
   }

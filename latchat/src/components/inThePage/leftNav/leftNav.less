@@ -11,40 +11,42 @@
     }
   }
   .leftNav_select_manage{
-    margin-top: 20px;
+    margin-top: 30px;
+    a{
+      &:nth-of-type(1) i{
+        background: url("../../../assets/chatPrimate.png");
+        &:hover{
+          background: url("../../../assets/chatHover.png");
+        }
+        &.active{
+          background: url("../../../assets/chatSelect.png");
+        }
+      }
+      &:nth-of-type(2) i{
+        background: url("../../../assets/friendGroupPrimate.png");
+        &:hover{
+          background: url("../../../assets/friendGroupHover.png");
+        }
+        &.active{
+          background: url("../../../assets/friendGroupSelect.png");
+        }
+      }
+      &:nth-of-type(3) i{
+        background: url("../../../assets/interestPrimate.png");
+        &:hover{
+          background: url("../../../assets/interestHover.png");
+        }
+        &.active{
+          background: url("../../../assets/interestSelect.png");
+        }
+      }
+    }
     i{
       display: inline-block;
       width: 36px;
       height: 36px;
       cursor: pointer;
-      margin-bottom: 10px;
-      &:nth-of-type(1){
-        background: url("../../../assets/user.png");
-        &:hover{
-          background: url("../../../assets/userHov.png");
-        }
-        &:active{
-          background: url("../../../assets/userSel.png");
-        }
-      }
-      &:nth-of-type(2){
-        background: url("../../../assets/group.png");
-        &:hover{
-          background: url("../../../assets/groupHov.png");
-        }
-        &:active{
-          background: url("../../../assets/groupHov.png");
-        }
-      }
-      &:nth-of-type(3){
-        background: url("../../../assets/integral.png");
-        &:hover{
-          background: url("../../../assets/integralHov.png");
-        }
-        &:active{
-          background: url("../../../assets/integralSel.png");
-        }
-      }
+      margin-bottom: 20px;
     }
   }
 }

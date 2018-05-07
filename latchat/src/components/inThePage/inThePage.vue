@@ -2,16 +2,17 @@
   <div id="inThePage" class="inThePage">
     <div class="pageContain">
       <left-nav></left-nav>
-      <center-nav></center-nav>
-      <right-nav></right-nav>
+      <router-view></router-view>
+      <!--<center-nav></center-nav>-->
+      <!--<right-nav></right-nav>-->
     </div>
   </div>
 </template>
 
 <script>
 import leftNav from './leftNav/leftNav.vue'
-import centerNav from './centerNav/centerNav.vue'
-import rightNav from './rightNav/rightNav.vue'
+// import centerNav from './centerNav/centerNav.vue'
+// import rightNav from './rightNav/rightNav.vue'
 import {mapGetters, mapActions, mapMutations} from 'vuex'
 export default {
   name: 'inThePage',
@@ -21,9 +22,9 @@ export default {
     }
   },
   components: {
-    leftNav,
-    centerNav,
-    rightNav
+    leftNav
+    // centerNav,
+    // rightNav
   },
   computed: {
     ...mapGetters([

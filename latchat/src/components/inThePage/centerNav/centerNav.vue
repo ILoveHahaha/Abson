@@ -11,7 +11,7 @@
     </div>
     <EasyScrollbar>
       <div class="userPanel">
-        <div class="userChat" v-for="item in total">
+        <div class="userChat" v-for="item in total" @click="goToChat()">
           <div>
             <img src="../../../assets/webwxgeticon.jpg">
           </div>
@@ -53,6 +53,9 @@ export default {
     nowDate () {
       let date = new Date()
       return date
+    },
+    goToChat () {
+      this.$router.push({path: '/inThePage/message/rightNav'})
     }
   }
 }

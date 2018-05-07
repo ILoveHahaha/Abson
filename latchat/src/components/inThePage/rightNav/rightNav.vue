@@ -13,7 +13,8 @@
         </div>
         <div class="message">
           <EasyScrollbar>
-            <div class="messageList" v-for="item in messageList">
+            <div class="messageList" v-for="item in messageList" :key="item">
+              <!--<div class="messageList"></div>-->
               <p>{{item.time}}</p>
               <div class="myMessage" v-if="item.who === 'me'">
                 <div class="messageCell">
@@ -44,7 +45,9 @@
           <div class="inputPanel-input">
             <textarea></textarea>
           </div>
-          <div class="inputPanel-commit"></div>
+          <div class="inputPanel-commit">
+            <el-button type="primary" size="mini">发送</el-button>
+          </div>
         </div>
       </div>
     </div>
@@ -57,20 +60,20 @@ export default {
     return {
       messageUser: '肥莹',
       messageList: [{
-          "username": "abson",
-          "message": "明天下午我找你",
-          "who": "me",
-          "time": "22:49"
-      },{
-          "username": "feiying",
-          "message": "好啊好啊,记得带吃的过来",
-          "who": "another",
-          "time": "22:50"
-      },{
-          "username": "abson",
-          "message": "你这头猪",
-          "who": "me",
-          "time": "22:51"
+        'username': 'abson',
+        'message': '明天下午我找你',
+        'who': 'me',
+        'time': '22:49'
+      }, {
+        'username': 'feiying',
+        'message': '好啊好啊,记得带吃的过来',
+        'who': 'another',
+        'time': '22:50'
+      }, {
+        'username': 'abson',
+        'message': '你这头猪',
+        'who': 'me',
+        'time': '22:51'
       }]
     }
   },
