@@ -50,11 +50,17 @@
     position: relative;
     height: 558px;
     .userChat{
-      background-color: #eeeeee;
+      background-color: #d3d3d3;
       padding: 8px 12px;
       height: 45px;
       text-align: left;
       cursor: pointer;
+      &:hover{
+        background-color: #c2c2c2;
+      }
+      &.active{
+        background-color: #b1b1b1;
+      }
       &:nth-of-type(n+2){
         margin-top: 5px;
       }

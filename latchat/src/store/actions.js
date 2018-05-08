@@ -33,8 +33,9 @@ export const login = ({commit}, {uid, password}) => {
 }
 
 export const myself = ({commit}, {uid}) => {
-  api.myselef(uid)
-  commit(types.MYSELF, uid)
+  api.myselfInfo(uid).then(res => {
+    commit(types.MYSELF, res.data)
+  })
 }
 
 export const newuser = ({commit}, {uid, password, uname}) => {
@@ -50,6 +51,14 @@ export const changePsw = ({commit}, {uid, password}) => {
   commit(types.CHANGEPSW)
 }
 
-export const initPage = ({commit}) => {
-  commit(types.INITDATA)
+export const friendList = ({commit}, {uid}) => {
+  api.userFriendList(uid).then(res => {
+    commit(types.FRIENDLIST, res.data)
+  })
+}
+
+export const groupList = ({commit}, {uid}) => {
+  api.groupList(uid).then(res => {
+    commit(types.GROUPLIST, res.data)
+  })
 }

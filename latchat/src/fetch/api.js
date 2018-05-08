@@ -25,4 +25,4 @@ export const setMyselfVote = (articleNo, userId, vState) => fetch('/trend/setMys
 // 删除评论
 export const deleteReply = (replyNo, articleNo, ruid) => fetch('/trend/deleteReply', {rNo: replyNo, rid: articleNo, ruid: ruid}, 'GET')
 // 加载好友信息
-export const myselef = (userId) => fetch('/index/myself', {uid: userId}, 'POST')
+export const friendInfo = (userId) => fetch('/index/myself', {uid: userId}, 'POST')

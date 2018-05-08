@@ -6,6 +6,8 @@ export const state = {
   ulogo: '',
   usign: '',
   ucity: '',
-  userFriendList: Object.create(null),
-  groupList: Object.create(null)
+  userFriendList: {},
+  groupList: {},
+  chatName: '',
+  chatObj: {}
 }

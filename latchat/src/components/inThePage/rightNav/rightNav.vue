@@ -8,7 +8,7 @@
       <div class="userMessage">
         <div class="messageTitle">
           <span></span>
-          <p>{{messageUser}}</p>
+          <p>{{this.$store.getters.getChatName}}</p>
           <i></i>
         </div>
         <div class="message">
@@ -22,12 +22,12 @@
                     <span class="spanRight">{{item.username}}</span>
                     <div class="divRight">{{item.message}}</div>
                   </div>
-                  <img src="../../../assets/webwxgeticon.jpg">
+                  <img src="../../../assets/logo/1134.jpg">
                 </div>
               </div>
               <div class="otherMessage" v-if="item.who === 'another'">
                 <div class="messageCell">
-                  <img src="../../../assets/web.jpg"/>
+                  <img src="../../../assets/logo/1124.jpg"/>
                   <div class="messageUserCell">
                     <span class="spanLeft">{{item.username}}</span>
                     <div class="divLeft">{{item.message}}</div>
@@ -55,6 +55,7 @@
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
 export default {
   data () {
     return {
@@ -79,6 +80,9 @@ export default {
   },
   mounted () {
     this.getMessageList()
+  },
+  computed: {
+    ...mapGetters(['getChatName'])
   },
   methods: {
     getMessageList () {

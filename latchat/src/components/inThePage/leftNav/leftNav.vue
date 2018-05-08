@@ -1,7 +1,7 @@
 <template>
   <div class="leftNav">
     <div class="leftNav_title_img" @click="mySelf()">
-      <img src="../../../assets/webwxgeticon.jpg"/>
+      <img :src="this.$store.getters.ulogo"/>
     </div>
     <div class="leftNav_select_manage" @click="tabSelect($event)">
       <router-link to="/inThePage/message"><i></i></router-link>
@@ -13,12 +13,18 @@
 </template>
 
 <script>
+import {mapGetters, mapMutations, mapActions} from 'vuex'
 export default {
   name: 'leftNav',
   data () {
     return {
       preNode: ''
     }
+  },
+  computed: {
+    ...mapGetters(['userId', 'uname', 'usex', 'usign', 'ulogo', 'ucity']),
+    ...mapActions([]),
+    ...mapMutations([])
   },
   mounted: function () {
     document.getElementsByTagName('i')[0].click()

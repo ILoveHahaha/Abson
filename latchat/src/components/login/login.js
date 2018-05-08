@@ -71,12 +71,8 @@ export default {
     })
   },
   computed: {
-    ...mapActions([
-      'login', 'newuser', 'changePsw'
-    ]),
-    ...mapGetters([
-      'userId'
-    ])
+    ...mapActions(['login', 'newuser', 'changePsw']),
+    ...mapGetters(['userId'])
   },
   methods: {
     submitForm (formName) {
@@ -84,7 +80,11 @@ export default {
         this.$refs[formName].validate((valid) => {
           if (valid) {
             this.$store.dispatch('login', {uid: this.loginForm.userEmail, password: this.loginForm.password}).then(res => {
-              this.$router.push({path: '/inThePage'})
+              this.$router.push({path: '/inThePage/message'})
+              sessionStorage.setItem('userId', this.loginForm.userEmail)
+              // this.$store.dispatch('myself', {uid: this.loginForm.userEmail}).then(res => {})
+              // this.$store.dispatch('friendList', {uid: this.loginForm.userEmail}).then(res => {})
+              // this.$store.dispatch('groupList', {uid: this.loginForm.userEmail}).then(res => {})
             })
           } else {
             console.log('error submit!!')
@@ -97,7 +97,11 @@ export default {
         //   if (valid) {
         //     console.log(2)
         this.$store.dispatch('newuser', {uid: this.UserForm.userEmail, password: this.UserForm.username, uname: this.UserForm.password}).then(res => {
-          this.$router.push({path: '/inThePage'})
+          this.$router.push({path: '/inThePage/message'})
+          sessionStorage.setItem('userId', this.loginForm.userEmail)
+          // this.$store.dispatch('myself', {uid: this.UserForm.userEmail}).then(res => {})
+          // this.$store.dispatch('friendList', {uid: this.UserForm.userEmail}).then(res => {})
+          // this.$store.dispatch('groupList', {uid: this.UserForm.userEmail}).then(res => {})
         })
         // this.newUser(this.UserForm.userEmail, this.UserForm.username, this.UserForm.password)
         // } else {
